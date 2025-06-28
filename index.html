@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class A to 7</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    @page { size: A5; margin: 10mm; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .login-container { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; }
+    .login-box { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .login-box h2 { margin-bottom: 20px; }
+    .login-box input { display: block; margin-bottom: 15px; width: 100%; padding: 8px; }
+    .container { display: none; width: 100%; max-width: 595px; margin: auto; background-color: white; padding: 20px; border-radius: 10px; color: black; }
+    #subjectFields { display: grid; grid-template-columns: 150px 80px 80px 80px 80px; align-items: center; gap: 10px; }
+    .button-row { margin-top: 40px; text-align: center; }
+    .signature-row { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; font-weight: bold; }
+    .signature-block { position: relative; text-align: center; width: 180px; height: 180px; margin-left: 80px; }
+    .signature-block img.signature { max-height: 50px; width: auto; position: absolute; top: 35px; left: 50%; transform: translateX(-50%); z-index: 1; }
+    .signature-block .principal-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.2em; font-weight: bold; color: #000; z-index: 2; }
+    .school-title { display: flex; align-items: center; justify-content: flex-start; margin-bottom: 20px; }
+    .school-title img { max-height: 80px; margin-right: 20px; }
+    @media print {
+      button, input[type="submit"] { display: none; }
+      body { padding: 0; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .container { width: 100%; margin: 0; }
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<div class="login-container" id="loginBox">
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="authenticate()">Login</button>
+    <p id="loginError" style="color: red; display: none;">Invalid credentials</p>
+  </div>
+</div>
+<div class="container" id="mainContent"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
